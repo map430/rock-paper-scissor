@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+//The computer's answer
+function getComputerChoice(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    const item = arr[randomIndex];
+    return item;
+}
+
+const options = ["rock", "paper", "scissor"];
+
+//The function playRound
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === "rock" && computerSelection === "scissor") {
+    alert("You Win! Rock crushes Scissor");
+  }else if (playerSelection === "paper" && computerSelection === "rock") {
+    alert("You Win! Paper covers Rock");
+  }else if (playerSelection === "scissor" && computerSelection === "paper") {
+    alert("You Win! Scissors cut Paper");
+  }else if (playerSelection === "scissor" && computerSelection === "rock") {
+    alert("You Lose! Rock crushes Scissor");
+  }else if (playerSelection === "rock" && computerSelection === "paper") {
+    alert("You Lose! Paper covers Rock");
+  }else if (playerSelection === "paper" && computerSelection === "scissor") {
+    alert("You Lose! Scissors cut Paper");
+  }else if (playerSelection === computerSelection) {
+    alert("It's a tie!");
+  }else {
+    alert("Try again! Your answer has to be Rock, Paper, or Scissor")
+  }
+}
+
+//Calling the function 
+const playerSelection = prompt("Choose rock, paper, or scissor");
+let computerSelection = getComputerChoice(options);
+playRound(playerSelection.toLowerCase(), computerSelection);
+
+
+
+
+
+</script>
+</body>
+</html>
