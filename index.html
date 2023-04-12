@@ -23,30 +23,30 @@ const options = ["rock", "paper", "scissor"];
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissor") {
     ++playerScore;
-    let message = ("You Win! Rock crushes Scissor");
+    let message = ("Rock crushes Scissor. You get 1 point.");
     return (message);
   }else if (playerSelection === "paper" && computerSelection === "rock") {
     ++playerScore;
-    let message = ("You Win! Paper covers Rock");
+    let message = ("Paper covers Rock. You get 1 point");
     return (message);
   }else if (playerSelection === "scissor" && computerSelection === "paper") {
     ++playerScore;
-    let message = ("You Win! Scissors cut Paper");
+    let message = ("Scissors cut Paper. Yout get 1 point.");
     return (message);
   }else if (playerSelection === "scissor" && computerSelection === "rock") {
     ++computerScore;
-    let message = ("You Lose! Rock crushes Scissor");
+    let message = ("Rock crushes Scissor. I get 1 point");
     return (message);
   }else if (playerSelection === "rock" && computerSelection === "paper") {
     ++computerScore;
-    let message = ("You Lose! Paper covers Rock");
+    let message = ("Paper covers Rock. I get 1 point.");
     return (message);
   }else if (playerSelection === "paper" && computerSelection === "scissor") {
     ++computerScore;
-    let message = ("You Lose! Scissors cut Paper");
+    let message = ("Scissors cut Paper. I get 1 point.");
     return (message);
   }else if (playerSelection === computerSelection) {
-    let message = ("It's a tie!");
+    let message = ("It's a tie! Neither of us get a point.");
     return (message);
   }else {
     let message = ("Try again! Your answer has to be Rock, Paper, or Scissor")
@@ -55,27 +55,25 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  let message1 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor"), computerSelection);
+  let message1 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor").toLowerCase(), computerSelection);
   alert(message1);
-  let message2 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor"), computerSelection);
+  let message2 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor").toLowerCase(), computerSelection);
   alert(message2)
-  let message3 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor"), computerSelection);
+  let message3 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor").toLowerCase(), computerSelection);
   alert(message3)
-  let message4 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor"), computerSelection);
+  let message4 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor").toLowerCase(), computerSelection);
   alert(message4)
-  let message5 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor"), computerSelection); 
+  let message5 = playRound(playerSelection1 = prompt("Choose rock, paper, or scissor").toLowerCase(), computerSelection); 
   alert(message5)
   if (playerScore > computerScore) {
-    alert("Congratulations! You Win!");
+    alert("Congratulations! You Win!\nYour Score: " + playerScore + "\nMy Score: " + computerScore);
   }else if (playerScore === computerScore) {
     alert("It's a tie!");
   }else if (playerScore < computerScore) {
-    alert("Sorry you lose!");
+    alert("Sorry you lose\nYour Score: " + playerScore + "\nMy Score: " + computerScore);
   }else {
     alert("Error");
   }
-  console.log("Player Score " + playerScore);
-  console.log("Computer Score " + computerScore);
 }
 
 
@@ -83,7 +81,9 @@ function game() {
 let computerSelection = getComputerChoice(options);
 let playerScore = 0;
 let computerScore = 0;
+alert("Hi! This is a game of Rock, Paper, Scissor. You're going to have five chances to beat me. I'll display our scores at the end. Good luck!");
 game();
+
 
 </script>
 </body>
