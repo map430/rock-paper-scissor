@@ -23,16 +23,22 @@ const options = ["rock", "paper", "scissor"];
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissor") {
     alert("You Win! Rock crushes Scissor");
+    ++playerScore;
   }else if (playerSelection === "paper" && computerSelection === "rock") {
     alert("You Win! Paper covers Rock");
+    ++playerScore;
   }else if (playerSelection === "scissor" && computerSelection === "paper") {
     alert("You Win! Scissors cut Paper");
+    ++playerScore;
   }else if (playerSelection === "scissor" && computerSelection === "rock") {
     alert("You Lose! Rock crushes Scissor");
+    ++computerScore;
   }else if (playerSelection === "rock" && computerSelection === "paper") {
     alert("You Lose! Paper covers Rock");
+    ++computerScore;
   }else if (playerSelection === "paper" && computerSelection === "scissor") {
     alert("You Lose! Scissors cut Paper");
+    ++computerScore;
   }else if (playerSelection === computerSelection) {
     alert("It's a tie!");
   }else {
@@ -43,10 +49,19 @@ function playRound(playerSelection, computerSelection) {
 //Calling the function 
 const playerSelection = prompt("Choose rock, paper, or scissor");
 let computerSelection = getComputerChoice(options);
+let playerScore = 0;
+let computerScore = 0;
 playRound(playerSelection.toLowerCase(), computerSelection);
+console.log(playerScore);
+console.log(computerScore);
 
-
-
+//Create new function called game()
+  //Establish variable playerScore
+  //Establish variable computerScore
+  //Call the function playRound five times 
+  //Each time give the player or the computer a point depending upon who wins that round 
+  //If playerScore > computerScore, output You win!
+  //If playerScore < computerScore, output You lose! 
 
 
 </script>
