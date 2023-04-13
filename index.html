@@ -19,6 +19,9 @@ function getComputerChoice(arr) {
 
 const options = ["rock", "paper", "scissor"];
 
+let playerScore = 0;
+let computerScore = 0;
+
 //The function playRound
 function playRound() {
   const computerSelection = getComputerChoice(options);
@@ -55,9 +58,6 @@ function playRound() {
     return (message);
   }
 }
-
-let playerScore = 0;
-let computerScore = 0;
 
 function game() {
   let message1 = playRound();
