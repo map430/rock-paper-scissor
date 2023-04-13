@@ -10,25 +10,26 @@
 
 <script>
 
-//The computer's answer
+//Function to generate random string from an array
 function getComputerChoice(arr) {
     const randomIndex = Math.floor(Math.random() * arr.length);
     const item = arr[randomIndex];
     return item;
 }
 
-const options = ["rock", "paper", "scissor"];
+const options = ["rock", "paper", "scissor"];  //Define options for computer's selection
 
+//Establish starting scores to be incrimented
 let playerScore = 0;
 let computerScore = 0;
 
-//The function playRound
+//Function to define the result of each round 
 function playRound() {
-  const computerSelection = getComputerChoice(options);
-  const playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase();
-  if (playerSelection === "rock" && computerSelection === "scissor") {
+  const computerSelection = getComputerChoice(options); //call the getComputerChoice function using options variable to establish computer's answer
+  const playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase(); //Obtain the player's answer by prompting them and logging their response after making it all lowercase
+  if (playerSelection === "rock" && computerSelection === "scissor") {  //For each payer and computer answer possibility, establish who's socre will go up, and output a message explaing the result to the user
     ++playerScore;
-    let message = ("Rock crushes Scissor. You get 1 point.");
+    let message = ("Rock crushes Scissor. You get 1 point."); //In order to expose this string to the game function and allow this message to be printed, we turn it into a variable, message, and then return it so it can be uptaken.
     return (message);
   }else if (playerSelection === "paper" && computerSelection === "rock") {
     ++playerScore;
@@ -59,9 +60,9 @@ function playRound() {
   }
 }
 
-function game() {
-  let message1 = playRound();
-  alert(message1);
+function game() { //The game function uses the playRound function which defined the results of each round, calls it five times to offer five rounds to the user, and then produces the final result. 
+  let message1 = playRound(); //The function plays a round, gets the user's response by prompt and the computer's response using the getComputerChoice function, and captures the appropriate message that is returned by the playRound function. It then turns this message into an alert for the user.
+  alert(message1); 
   let message2 = playRound();
   alert(message2)
   let message3 = playRound();
@@ -70,7 +71,7 @@ function game() {
   alert(message4)
   let message5 = playRound(); 
   alert(message5)
-  if (playerScore > computerScore) {
+  if (playerScore > computerScore) { //Once all rounds have been played the player and computer's scores that have been incrimented over five rounds are compared and an alert displays the appropriate message and the final scores. 
     alert("Congratulations! You Win!\nYour Score: " + playerScore + "\nMy Score: " + computerScore);
   }else if (playerScore === computerScore) {
     alert("It's a tie!");
@@ -80,7 +81,7 @@ function game() {
     alert("Error");
   }
 }
-
+//Below are the commands that initiate the actual action on the webpate. The alert establishes basic directions and the game function is called by simply typing it out as game(). The game funciton uses the playRound and getComputer functions and begins playing five rounds with the user. 
 alert("Hi! Let's play a game of Rock, Paper, Scissor. When the dialogue box opens, input your answer. You will have 5 tries. At the end I'll display our scores");
 game();
 
