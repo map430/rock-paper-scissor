@@ -22,6 +22,7 @@ const options = ["rock", "paper", "scissor"];
 //The function playRound
 function playRound() {
   const computerSelection = getComputerChoice(options);
+  const playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase();
   if (playerSelection === "rock" && computerSelection === "scissor") {
     ++playerScore;
     let message = ("Rock crushes Scissor. You get 1 point.");
@@ -59,15 +60,15 @@ let playerScore = 0;
 let computerScore = 0;
 
 function game() {
-  let message1 = playRound(playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase());
+  let message1 = playRound();
   alert(message1);
-  let message2 = playRound(playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase());
+  let message2 = playRound();
   alert(message2)
-  let message3 = playRound(playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase());
+  let message3 = playRound();
   alert(message3)
-  let message4 = playRound(playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase());
+  let message4 = playRound();
   alert(message4)
-  let message5 = playRound(playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase()); 
+  let message5 = playRound(); 
   alert(message5)
   if (playerScore > computerScore) {
     alert("Congratulations! You Win!\nYour Score: " + playerScore + "\nMy Score: " + computerScore);
