@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<button class="rock">Rock</button>
+<button class="paper">Paper</button>
+<button class="scissor">Scissor</button>
+
 <script>
 
 //Function to generate random string from an array
@@ -24,66 +28,56 @@ let playerScore = 0;
 let computerScore = 0;
 
 //Function to define the result of each round 
-function playRound() {
+function playRound(playerSelection) {
   const computerSelection = getComputerChoice(options); //call the getComputerChoice function using options variable to establish computer's answer
-  const playerSelection = prompt("Choose rock, paper, or scissor").toLowerCase(); //Obtain the player's answer by prompting them and logging their response after making it all lowercase
   if (playerSelection === "rock" && computerSelection === "scissor") {  //For each payer and computer answer possibility, establish who's socre will go up, and output a message explaing the result to the user
     ++playerScore;
-    let message = ("Rock crushes Scissor. You get 1 point."); //In order to expose this string to the game function and allow this message to be printed, we turn it into a variable, message, and then return it so it can be uptaken.
-    return (message);
+    alert("Rock crushes Scissor. You get 1 point."); //In order to expose this string to the game function and allow this message to be printed, we turn it into a variable, message, and then return it so it can be uptaken.
   }else if (playerSelection === "paper" && computerSelection === "rock") {
     ++playerScore;
-    let message = ("Paper covers Rock. You get 1 point");
-    return (message);
+    alert("Paper covers Rock. You get 1 point");
   }else if (playerSelection === "scissor" && computerSelection === "paper") {
     ++playerScore;
-    let message = ("Scissors cut Paper. Yout get 1 point.");
-    return (message);
+    alert("Scissors cut Paper. Yout get 1 point.");
   }else if (playerSelection === "scissor" && computerSelection === "rock") {
     ++computerScore;
-    let message = ("Rock crushes Scissor. I get 1 point");
-    return (message);
+    alert("Rock crushes Scissor. I get 1 point");
   }else if (playerSelection === "rock" && computerSelection === "paper") {
     ++computerScore;
-    let message = ("Paper covers Rock. I get 1 point.");
-    return (message);
+    alert("Paper covers Rock. I get 1 point.");
   }else if (playerSelection === "paper" && computerSelection === "scissor") {
     ++computerScore;
-    let message = ("Scissors cut Paper. I get 1 point.");
-    return (message);
+    alert("Scissors cut Paper. I get 1 point.");
   }else if (playerSelection === computerSelection) {
-    let message = ("It's a tie! Neither of us get a point.");
-    return (message);
+    alert("It's a tie! Neither of us get a point.");
   }else {
-    let message = ("Try again! Your answer has to be Rock, Paper, or Scissor")
-    return (message);
+    alert("Try again! Your answer has to be Rock, Paper, or Scissor");
   }
 }
 
-function game() { //The game function uses the playRound function which defined the results of each round, calls it five times to offer five rounds to the user, and then produces the final result. 
-  let message1 = playRound(); //The function plays a round, gets the user's response by prompt and the computer's response using the getComputerChoice function, and captures the appropriate message that is returned by the playRound function. It then turns this message into an alert for the user.
-  alert(message1); 
-  let message2 = playRound();
-  alert(message2)
-  let message3 = playRound();
-  alert(message3)
-  let message4 = playRound();
-  alert(message4)
-  let message5 = playRound(); 
-  alert(message5)
-  if (playerScore > computerScore) { //Once all rounds have been played the player and computer's scores that have been incrimented over five rounds are compared and an alert displays the appropriate message and the final scores. 
-    alert("Congratulations! You Win!\nYour Score: " + playerScore + "\nMy Score: " + computerScore);
-  }else if (playerScore === computerScore) {
-    alert("It's a tie!");
-  }else if (playerScore < computerScore) {
-    alert("Sorry you lose\nYour Score: " + playerScore + "\nMy Score: " + computerScore);
-  }else {
-    alert("Error");
-  }
-}
+
 //Below are the commands that initiate the actual action on the webpate. The alert establishes basic directions and the game function is called by simply typing it out as game(). The game funciton uses the playRound and getComputer functions and begins playing five rounds with the user. 
-alert("Hi! Let's play a game of Rock, Paper, Scissor. When the dialogue box opens, input your answer. You will have 5 tries. At the end I'll display our scores");
-game();
+alert("Hi! Let's play a game of Rock, Paper, Scissor. Click one of the buttons below and lets see who wins!");
+
+const rockButton = document.querySelector(".rock"); 
+rockButton.addEventListener("click", function() { 
+  const playerSelection = "rock"; 
+  playRound(playerSelection); 
+})
+
+const paperButton = document.querySelector(".paper");
+paperButton.addEventListener("click", function() {
+  playerSelection = "paper";
+  playRound(playerSelection);
+})
+
+const scissorButton = document.querySelector(".scissor");
+scissorButton.addEventListener("click", function() {
+  playerSelection = "scissor";
+  playRound(playerSelection);
+})
+
+
 
 
 </script>
